@@ -1,0 +1,12 @@
+services:
+  vault:
+    build: .
+    ports: ["8009:8000"]
+    environment:
+      PYTHONPATH: /app/src
+      VAULT_LIBRARY_ROOT: /library
+      VAULT_DB_PATH: /data/vault.sqlite3
+    volumes: ["vault_library:/library","vault_data:/data"]
+volumes:
+  vault_library:
+  vault_data:
